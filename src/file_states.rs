@@ -4,11 +4,23 @@ enum FileState {
     Closed,
 }
 
+impl Display for FileState {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match *self {}
+    }
+}
+
 #[derive(Debug)]
 struct File {
     name: String,
     data: Vec<u8>,
     state: FileState,
+}
+
+impl Display for File {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}.{}.{}.{}", self.0, self.1, self.2, self.3)
+    }
 }
 
 impl File {
